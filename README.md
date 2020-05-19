@@ -1,2 +1,2 @@
 # phoneMask
-phoneMask for platformalp.ru form (international phone format)
+Маска телефона международного формата для форм созданных в platformalp.ru

@@ -1,4 +1,11 @@
-            var listCountries = $.masksSort($.masksLoad("https://ibulankin.github.io/phoneMask/data/phone-codes.json"), ['#'], /[0-9]|#/, "mask");
+	const input = document.querySelector('div[data-type=phone] input, div[plp-field=phone] input');
+	input.setAttribute('checked', 'true');
+	const input2 = document.querySelector('div[data-type=phone] input, div[plp-field=phone] input');
+	input2.setAttribute('id', 'phone_mask');
+	const input3 = document.querySelector('div[data-type=phone] .name, div[plp-field=phone] .name');
+	input3.setAttribute('for', 'phone_mask');
+	        
+	var listCountries = $.masksSort($.masksLoad("https://ibulankin.github.io/phoneMask/data/phone-codes.json"), ['#'], /[0-9]|#/, "mask");
             /*var listRU = $.masksSort($.masksLoad("https://ibulankin.github.io/phoneMask/data/phones-ru.json"), ['#'], /[0-9]|#/, "mask");*/
             var maskOpts = {
                 inputmask: {
@@ -42,9 +49,9 @@
             }
 
             $('#phone_mask, input[name="mode"]').change(function() {
-                if ($('#phone_mask').is(':checked')) {
+                if ($('#phone_mask').prop('checked', 'true')) {
                     $("div[data-type=phone] input, div[plp-field=phone] input").inputmask("remove");
-                    if ($('#is_world').is(':checked')) {
+                    if ($('#is_world').prop('checked', 'true')) {
                         $("div[data-type=phone] input, div[plp-field=phone] input").inputmasks($.extend(true, {}, maskOpts, {
                             list: listCountries,
                             onMaskChange: maskChangeWorld

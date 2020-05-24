@@ -1,5 +1,5 @@
 	var inputPhone = $("div[data-type=phone] input, div[plp-field=phone] input");
-	var namePhone = $("div[data-type=phone] .name, div[plp-field=phone] .name");
+	var namePhone = $("div[data-type=phone] value, div[plp-field=phone] .name");
 	$('[plp-field=phone]').addClass('is-filled');
 	namePhone.addClass('is-filled');
 
@@ -8,9 +8,8 @@
 	input.setAttribute('checked', 'true');
 	const input2 = document.querySelector('div[data-type=phone] input, div[plp-field=phone] input');
 	input2.setAttribute('id', 'phone_mask');
-	const input3 = document.querySelector('div[data-type=phone] .name, div[plp-field=phone] .name');
+	const input3 = document.querySelector('div[data-type=phone] .text, div[plp-field=phone] .name');
 	input3.setAttribute('for', 'phone_mask');
-
 
 	        
 	var listCountries = $.masksSort($.masksLoad("https://ibulankin.github.io/phoneMask/data/phone-codes.json"), ['#'], /[0-9]|#/, "mask");

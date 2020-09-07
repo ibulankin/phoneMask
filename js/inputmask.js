@@ -1,18 +1,18 @@
-	var inputPhone = $("div[data-type=phone] input, div[plp-field=phone] input");
-	var namePhone = $("div[data-type=phone] value, div[plp-field=phone] .name");
-	$('[plp-field=phone]').addClass('is-filled');
-	namePhone.addClass('is-filled');
+  var inputPhone = $("div[data-type=phone] input, div[plp-field=phone] input");
+  var namePhone = $("div[data-type=phone] value, div[plp-field=phone] .name");
+  $('[plp-field=phone]').addClass('is-filled');
+  namePhone.addClass('is-filled');
 
 
-	const input = document.querySelector('div[data-type=phone] input, div[plp-field=phone] input');
-	input.setAttribute('checked', 'true');
-	const input2 = document.querySelector('div[data-type=phone] input, div[plp-field=phone] input');
-	input2.setAttribute('id', 'phone_mask');
-	const input3 = document.querySelector('div[data-type=phone] .text, div[plp-field=phone] .name');
-	input3.setAttribute('for', 'phone_mask');
+  const input = document.querySelector('div[data-type=phone] input, div[plp-field=phone] input');
+  input.setAttribute('checked', 'true');
+  const input2 = document.querySelector('div[data-type=phone] input, div[plp-field=phone] input');
+  input2.setAttribute('id', 'phone_mask');
+  const input3 = document.querySelector('div[data-type=phone] .text, div[plp-field=phone] .name');
+  input3.setAttribute('for', 'phone_mask');
 
-	        
-	var listCountries = $.masksSort($.masksLoad("https://ibulankin.github.io/phoneMask/data/phone-codes.json"), ['#'], /[0-9]|#/, "mask");
+          
+  var listCountries = $.masksSort($.masksLoad("https://ibulankin.github.io/phoneMask/data/phone-codes.json"), ['#'], /[0-9]|#/, "mask");
             /*var listRU = $.masksSort($.masksLoad("https://ibulankin.github.io/phoneMask/data/phones-ru.json"), ['#'], /[0-9]|#/, "mask");*/
             var maskOpts = {
                 inputmask: {
@@ -22,9 +22,9 @@
                             cardinality: 1
                         }
                     },
-                    showMaskOnHover: false,
+                    showMaskOnHover: true,
                     autoUnmask: true,
-                    clearMaskOnLostFocus: false
+                    clearMaskOnLostFocus: true
                 },
                 match: /[0-9]/,
                 replace: '#',
@@ -55,7 +55,7 @@
                 }
             }
 
-            $('#phone_mask, input[name="mode"]').change(function() {
+            $('#phone_mask, input[name="mode"]').keydown(function() {
                 if ($('#phone_mask').prop('checked', 'true')) {
                     $(inputPhone).inputmask("remove");
                     if ($('#is_world').prop('checked', 'true')) {
@@ -76,4 +76,4 @@
                 }
             });
 
-            $('#phone_mask').change();
+            $('#phone_mask').keydown();
